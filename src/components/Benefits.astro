@@ -1,0 +1,33 @@
+---
+const benefits = [
+  {
+    title: 'Técnicas de reprogramación mental',
+    description: 'científicamente probadas'
+  },
+  {
+    title: 'Ejercicios revolucionarios',
+    description: 'de manifestación cuántica'
+  },
+  {
+    title: 'Herramientas prácticas',
+    description: 'para aplicación inmediata'
+  },
+  {
+    title: 'Metodología multidisciplinaria',
+    description: 'para resultados exponenciales'
+  }
+];
+---
+<section class="flex justify-center mb-16 mt-24">
+  <div class="bg-blue-900/20 rounded-xl p-8 max-w-4xl w-full">
+    <h2 class="text-3xl font-bold text-center text-yellow-500 mb-8">Beneficios Exclusivos</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      {benefits.map(benefit => (
+        <div class="p-4 rounded-lg hover:scale-105 transition-transform">
+          <h3 class="font-semibold text-center mb-2">{benefit.title}</h3>
+          <p class="text-gray-300 text-center">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

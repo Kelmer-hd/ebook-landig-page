@@ -1,22 +1,44 @@
+---
+import Confetti from '../components/Confetti.astro'
+---
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Astro Basics</title>
+  <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+  <div class="gradient-cursor"></div>
+  <Confetti />
+  <slot />
+</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  .gradient-cursor {
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle at center, 
+      rgba(123, 104, 238, 0.2) 0%, 
+      rgba(65, 105, 225, 0.1) 40%, 
+      transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
 </style>
+
+<script>
+  document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.gradient-cursor');
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+</script>

@@ -1,0 +1,35 @@
+---
+import Card from './Card.astro';
+const features = [
+  {
+    title: '10 Saltos Cuánticos transformadores',
+    description: 'Basados en ciencia de vanguardia'
+  },
+  {
+    title: 'Ejercicios prácticos',
+    description: 'Con autoevaluación después de cada capítulo'
+  },
+  {
+    title: 'Sistema de seguimiento personalizado',
+    description: 'Para medir el progreso'
+  },
+  {
+    title: 'Respaldo Científico',
+    description: 'De investigadores pioneros en biología cuántica'
+  },
+  {
+    title: 'Fusión única',
+    description: 'De física cuántica, neurociencia y sabiduría ancestral'
+  }
+];
+---
+<div class="grid md:grid-cols-2 gap-8">
+  {features.slice(0, 4).map(feature => (
+    <Card title={feature.title} description={feature.description} />
+  ))}
+  <div class="md:col-span-2 flex justify-center">
+    <div class="max-w-md w-full">
+      <Card title={features[4].title} description={features[4].description} />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+---
+// components/FAQ.astro
+import { useState } from 'react';
+
+const faqs = [
+ {
+   question: '¿Necesito conocimientos previos de física cuántica?',
+   answer: 'No, el libro está diseñado para ser accesible a todos...'
+ },
+ {
+   question: '¿Cuánto tiempo dura el programa?',
+   answer: 'El programa completo dura 10 semanas, con una sesión semanal...'
+ },
+ {
+   question: '¿Qué pasa si no estoy satisfecho con el programa?',
+   answer: 'Si no estás satisfecho con el programa, te devolvemos el 100%...'
+ },
+  {
+    question: '¿Cómo puedo acceder al programa?',
+    answer: 'Una vez que te inscribes, recibirás un correo con los detalles...'
+  }
+];
+---
+
+<section class="max-w-3xl mx-auto mb-16">
+ <h2 class="text-2xl font-bold text-center mb-8">Preguntas frecuentes</h2>
+ <div class="space-y-4">
+   {faqs.map((faq, index) => (
+     <div 
+       class="bg-blue-900/30 p-6 rounded-xl transition-all hover:bg-blue-900/40 cursor-pointer group"
+       x-data="{ open: false }"
+       @click="open = !open"
+     >
+       <div class="flex justify-between items-center">
+         <h3 class="font-semibold text-lg">{faq.question}</h3>
+         <svg 
+           class="w-5 h-5 transform transition-transform" 
+           :class="{'rotate-180': open}"
+           fill="none" 
+           stroke="currentColor" 
+           viewBox="0 0 24 24"
+         >
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+         </svg>
+       </div>
+       <p 
+         class="text-gray-300 leading-relaxed mt-4 overflow-hidden transition-all duration-300"
+         x-show="open"
+         x-collapse
+       >
+         {faq.answer}
+       </p>
+     </div>
+   ))}
+ </div>
+</section>

@@ -1,11 +1,31 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
+import Feacture from '../components/Feature.astro';
+import Benefits from '../components/Benefits.astro';
+import BookPreview from '../components/BookPreview.astro';
+import Author from '../components/Author.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Services from '../components/Services.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import SocialMedia from '../components/SocialMedia.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <main class="min-h-screen bg-gradient-to-b from-blue-950 to-black text-white">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+	    <Hero />
+      <Feacture />
+      <Benefits />
+      <BookPreview />
+      <Author />
+      <Testimonials />
+      <Services />
+      <FAQ />
+      <CTA />
+      <SocialMedia />
+    </div>
+  </main>
 </Layout>
