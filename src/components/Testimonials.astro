@@ -1,19 +1,16 @@
 ---
 const testimonials = [
   {
-    quote: "Quote 1",
-    author: "Title",
-    position: "Description"
+    author: "Elena R. Profesora",
+    position: "Las herramientas prácticas del libro me ayudaron a superar mi ansiedad ante los cambios. Ahora enfrento los desafíos diarios con más confianza y claridad."
   },
   {
-    quote: "Quote 1",
-    author: "Title",
-    position: "Description"
+    author: "David M., Administrativo",
+    position: "Nunca pensé que conceptos tan complejos pudieran explicarse de forma tan sencilla. Los ejercicios son fáciles de seguir y han mejorado significativamente mi toma de decisiones."
   },
   {
-    quote: "Quote 1",
-    author: "Title",
-    position: "Description"
+    author: "Laura S., Comercial",
+    position: "Los ejercicios de visualización han transformado mi manera de ver las oportunidades. He conseguido mejorar mis relaciones y alcanzar pequeñas metas que antes veía imposibles."
   },
 ];
 ---
@@ -22,7 +19,6 @@ const testimonials = [
   <div class="grid md:grid-cols-3 gap-6">
     {testimonials.map(testimonial => (
       <div class="bg-blue-900/30 p-6 rounded-xl hover:transform hover:scale-105 transition-all">
-        <p class="text-lg italic mb-6">"{testimonial.quote}"</p>
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           <div>
