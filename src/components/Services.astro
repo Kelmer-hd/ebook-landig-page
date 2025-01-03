@@ -4,17 +4,20 @@ const services = [
  {
    title: 'Música para la transformación',
    description: 'Vive la magia de melodías para potenciar tu concentración y estado mental. Cada composición está seleccionada para amplificar tu energía, elevar tu concentración y acelerar tus logros. La banda sonora perfecta para tu camino hacia tu mejor versión.',
-   image: '/music.jpeg'
+   image: '/music.jpeg',
+   link: 'https://open.spotify.com/user/31fqu6tocy76wpozqwlqevr7hdfe?si=a7MOSw5gTyuzmChuXmhddg'
  },
  {
    title: 'Aromas que inspiran',
    description: 'Activa tu máximo potencial con fragancias exclusivas que marcan tus momentos de evolución cuántica. Estas esencias únicas despiertan tu mejor versión, creando memorias positivas que podrás revivir para alcanzar tus metas.',
-   image: '/aroma.jpeg'
+   image: '/aroma.jpeg',
+   link: 'https://example.com/aromas'
  },
  {
-   title: 'Iluminación Cuántica',
-   description: 'Imagina tener un guía personal que evoluciona contigo, disponible en cada momento decisivo de tu transformación. Tu Asistente Virtual Inteligente no es solo tecnología - es tu compañero de crecimiento, tu mentor personalizado y tu catalizador de éxito.',
-   image: '/mentor.jpeg'
+   title: 'Tu Mentor Cuántico 24/7',
+   description: 'Imagina tener un guía personal que evoluciona contigo, disponible en cada momento decisivo de tu transformación. Tu Asistente Virtual Inteligente no es solo tecnología, es tu compañero de crecimiento, tu mentor personalizado y tu catalizador de éxito.',
+   image: '/mentor.jpeg',
+   link: 'https://example.com/mentor'
  }
 ];
 ---
@@ -33,7 +36,12 @@ const services = [
   
   <div class="grid md:grid-cols-3 gap-8">
     {services.map(service => (
-      <div class="bg-blue-900/30 rounded-xl p-6 transform hover:scale-105 transition-all">
+      <a 
+        href={service.link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="bg-blue-900/30 rounded-xl p-6 transform hover:scale-105 transition-all block"
+      >
         <div class="mb-4 overflow-hidden rounded-lg">
           <img 
             src={service.image} 
@@ -43,7 +51,7 @@ const services = [
         </div>
         <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
         <p class="text-gray-300">{service.description}</p>
-      </div>
+      </a>
     ))}
   </div>
 </section>
