@@ -1,0 +1,111 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div 
+  x-data="{ 
+    activeSlide: 0,
+    pause: false,
+    init() {
+      setInterval(() => {
+        if (!this.pause) {
+          this.activeSlide = this.activeSlide === 0 ? 1 : 0;
+        }
+      }, 6000);
+    }
+  }"
+  @mouseenter="pause = true"
+  @mouseleave="pause = false"
+  class:list={[
+    "relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl",
+    "bg-gradient-to-r from-blue-950/10 to-black/10 backdrop-blur-sm",
+    className
+  ]}
+>
+  <!-- Contenedor de imágenes -->
+  <div class="relative aspect-[16/9]">
+    <!-- Logo Ebook -->
+    <div
+      x-show="activeSlide === 0"
+      x-transition:enter="transition ease-out duration-500"
+      x-transition:enter-start="opacity-0 transform scale-95"
+      x-transition:enter-end="opacity-100 transform scale-100"
+      x-transition:leave="transition ease-in duration-300"
+      x-transition:leave-start="opacity-100 transform scale-100"
+      x-transition:leave-end="opacity-0 transform scale-95"
+      class="absolute inset-0 flex items-center justify-center p-8"
+    >
+      <img 
+        src="/logo-ebook.png" 
+        alt="Logo Ebook"
+        class="max-w-full max-h-full object-contain drop-shadow-2xl"
+      />
+    </div>
+
+    <!-- WhatsApp -->
+    <div
+      x-show="activeSlide === 1"
+      x-transition:enter="transition ease-out duration-500"
+      x-transition:enter-start="opacity-0 transform scale-95"
+      x-transition:enter-end="opacity-100 transform scale-100"
+      x-transition:leave="transition ease-in duration-300"
+      x-transition:leave-start="opacity-100 transform scale-100"
+      x-transition:leave-end="opacity-0 transform scale-95"
+      class="absolute inset-0 flex items-center justify-center p-8"
+    >
+      <a 
+        href="https://wa.me/525553506923"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative group flex items-center justify-center w-full h-full transition-transform duration-300 hover:scale-105"
+      >
+        <img 
+          src="/whatsapp.jpg" 
+          alt="Contactar por WhatsApp"
+          class="max-w-full max-h-full object-contain drop-shadow-2xl"
+        />
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="bg-green-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+            Contactar ahora
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Botones de navegación -->
+  <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 z-20">
+    <button 
+      @click="activeSlide = 0"
+      :class="{ 'w-8 bg-blue-500': activeSlide === 0, 'w-3 bg-white/50': activeSlide !== 0 }"
+      class="h-3 rounded-full transition-all duration-300 hover:bg-blue-400"
+    ></button>
+    <button 
+      @click="activeSlide = 1"
+      :class="{ 'w-8 bg-blue-500': activeSlide === 1, 'w-3 bg-white/50': activeSlide !== 1 }"
+      class="h-3 rounded-full transition-all duration-300 hover:bg-blue-400"
+    ></button>
+  </div>
+
+  <!-- Flechas de navegación -->
+  <button 
+    @click="activeSlide = activeSlide === 0 ? 1 : 0"
+    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 backdrop-blur-sm text-white rounded-full p-3 hover:bg-white/20 transition-all duration-300 group"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 group-hover:scale-110 transition-transform duration-300">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+  </button>
+  <button 
+    @click="activeSlide = activeSlide === 0 ? 1 : 0"
+    class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 backdrop-blur-sm text-white rounded-full p-3 hover:bg-white/20 transition-all duration-300 group"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 group-hover:scale-110 transition-transform duration-300">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+</div> 

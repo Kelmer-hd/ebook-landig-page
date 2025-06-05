@@ -1,39 +1,65 @@
 ---
-import Confetti from '../components/Confetti.astro'
+import Confetti from "../components/Confetti.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 ---
+
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="generator" content={Astro.generator} />
-  <title>El Código Cuántico del Éxito | Ebook </title>
-  <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1428673191826727');
-    fbq('track', 'PageView');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>El Código Cuántico del Éxito | Ebook</title>
+    <script
+      defer
+      src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "1428673191826727");
+      fbq("track", "PageView");
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1428673191826727&ev=PageView&noscript=1"
-    /></noscript>
-  <!-- End Meta Pixel Code -->
-</head>
-<body>
-  <div class="gradient-cursor"></div>
-  <Confetti />
-  <slot />
-</body>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1428673191826727&ev=PageView&noscript=1"
+      /></noscript
+    >
+    <!-- End Meta Pixel Code -->
+  </head>
+  <body>
+    <div class="gradient-cursor"></div>
+    <Confetti />
+    <slot />
+    <WhatsAppButton />
+  </body>
 </html>
 
 <style>
@@ -43,19 +69,21 @@ import Confetti from '../components/Confetti.astro'
     position: fixed;
     border-radius: 50%;
     pointer-events: none;
-    background: radial-gradient(circle at center, 
-      rgba(123, 104, 238, 0.2) 0%, 
-      rgba(65, 105, 225, 0.1) 40%, 
-      transparent 70%);
+    background: radial-gradient(
+      circle at center,
+      rgba(123, 104, 238, 0.2) 0%,
+      rgba(65, 105, 225, 0.1) 40%,
+      transparent 70%
+    );
     transform: translate(-50%, -50%);
     z-index: 1;
   }
 </style>
 
 <script>
-  document.addEventListener('mousemove', (e) => {
-    const cursor = document.querySelector('.gradient-cursor');
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+  document.addEventListener("mousemove", (e) => {
+    const cursor = document.querySelector(".gradient-cursor");
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
   });
 </script>

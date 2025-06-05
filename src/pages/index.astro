@@ -10,6 +10,7 @@ import Services from '../components/Services.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
 import SocialMedia from '../components/SocialMedia.astro';
+import ImageCarousel from '../components/ImageCarousel.astro';
 
 ---
 
@@ -17,6 +18,10 @@ import SocialMedia from '../components/SocialMedia.astro';
   <main class="min-h-screen bg-gradient-to-b from-blue-950 to-black text-white">
     <div class="max-w-6xl mx-auto px-4 py-16">
 	    <Hero />
+      <div class="relative py-16">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-3xl"></div>
+        <ImageCarousel class="relative z-10" />
+      </div>
       <Feacture />
       <Benefits />
       <BookPreview />
